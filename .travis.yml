@@ -14,15 +14,15 @@ script:
 #- npm run lint
 - npm run test
 #- npm run build:docker
-sudo: required
-addons:
-  apt:
-    packages:
-    - sshpass
-    - google-chrome-stable
-after_success:
-- mv dist $TRAVIS_BRANCH
-- tar -czf build.tgz $TRAVIS_BRANCH
-- export SSHPASS=$DEPLOY_PASS
-- sshpass -e scp -o stricthostkeychecking=no build.tgz $DEPLOY_USER@$DEPLOY_HOST:./
-- sshpass -e ssh -o stricthostkeychecking=no $DEPLOY_USER@$DEPLOY_HOST ./deploy-build.sh
+#sudo: required
+#addons:
+#  apt:
+#    packages:
+#    - sshpass
+#    - google-chrome-stable
+#after_success:
+#- mv dist $TRAVIS_BRANCH
+#- tar -czf build.tgz $TRAVIS_BRANCH
+#- export SSHPASS=$DEPLOY_PASS
+#- sshpass -e scp -o stricthostkeychecking=no build.tgz $DEPLOY_USER@$DEPLOY_HOST:./
+#- sshpass -e ssh -o stricthostkeychecking=no $DEPLOY_USER@$DEPLOY_HOST ./deploy-build.sh
